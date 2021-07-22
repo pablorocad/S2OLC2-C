@@ -5,4 +5,4 @@ Saludos compañeros y compañeras, bienvenidos al curso de Compiladores 2. En es
  - Enlaces a artículos que puedan ser de su interés
  - Presentaciones del curso
 
-![Programador promedio](http://gph.is/1vOCl8h)
+![Programador promedio](https://media.giphy.com/media/13HgwGsXF0aiGY/giphy.gif)
