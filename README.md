@@ -16,7 +16,14 @@ Saludos compañeros y compañeras, bienvenidos al curso de Compiladores 2. En es
 ---
 
 ```
-[]
+{
+  analizadores: [
+      https://www.ericknavarro.io/olc2
+    ],
+  C3D: [
+      http://compi2survivorguide.blogspot.com/2015/02/codigo-3-direcciones.html
+    ]
+}
 ```
 
 ## Presentaciones del curso
