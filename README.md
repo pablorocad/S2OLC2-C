@@ -17,7 +17,7 @@ Saludos compañeros y compañeras, bienvenidos al curso de Compiladores 2. En es
 ---
 
 
-### analizadores:
+### Analizadores:
 - https://www.ericknavarro.io/olc2
 - https://www.dabeaz.com/ply/ply.html
 
