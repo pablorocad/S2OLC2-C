@@ -19,6 +19,8 @@ Saludos compañeros y compañeras, bienvenidos al curso de Compiladores 2. En es
 
 ### analizadores:
 - https://www.ericknavarro.io/olc2
+- https://www.dabeaz.com/ply/ply.html
+
 
 ### Codigo 3 direcciones: 
 - http://compi2survivorguide.blogspot.com/2015/02/codigo-3-direcciones.html
