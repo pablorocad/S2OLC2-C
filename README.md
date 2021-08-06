@@ -27,8 +27,6 @@ Saludos compañeros y compañeras, bienvenidos al curso de Compiladores 2. En es
     
 ---
 
-## Presentaciones del curso
+## Grabaciones del curso
 ---
-```
-[]
-```
+- https://drive.google.com/drive/folders/1yZcXWsJHkhA_laGpJ0yN7yjq7mvr478d?usp=sharing
