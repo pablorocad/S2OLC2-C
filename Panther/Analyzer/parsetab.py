@@ -6,9 +6,9 @@ _tabversion = '3.10'
 
 _lr_method = 'LALR'
 
-_lr_signature = 'leftIGUALleftMAYORMENORleftMASMENOSleftMULTIPLICACIONDIVISIONCONSOLE DECIMAL DIVISION ENTERO IGUAL LOG MAS MAYOR MENOR MENOS MULTIPLICACION PARDER PARIZQ PTCOMA PUNTO STRINGinitial : instructionsinstructions : instructions instruction\n                    | instruction\n    instruction : consoleLog \n    consoleLog : CONSOLE PUNTO LOG PARIZQ exp PARDER PTCOMA\n    exp  : exp MAS exp\n            | exp MENOS exp\n            | exp MULTIPLICACION exp\n            | exp DIVISION exp\n            | exp MAYOR exp\n            | exp MENOR exp\n            | exp IGUAL exp\n    exp : PARIZQ exp PARDERexp  : ENTERO\n    exp  : DECIMAL\n    exp  : STRING\n    '
+_lr_signature = 'leftIGUALQUEleftMAYORMENORleftMASMENOSleftMULTIPLICACIONDIVISIONCOMA CONSOLE CORDER CORIZQ DECIMAL DIVISION DOSPT ENTERO FUNCTION ID IGUAL IGUALQUE LET LLAVEDER LLAVEIZQ LOG MAS MAYOR MENOR MENOS MULTIPLICACION PARDER PARIZQ PTCOMA PUNTO RELSE RFLOAT RIF RINT RSTRING RWHILE STRINGinitial : instructionsinstructions : instructions instruction\n                    | instruction\n    instruction  : consoleLog \n                    | declaration\n                    | function\n                    | callFuncSt\n                    | assignment\n                    | whileSt\n                    | ifSt\n    empty :whileSt  : RWHILE PARIZQ exp PARDER block \n     ifSt  : RIF PARIZQ exp PARDER block elseSt\n    elseSt   : RELSE block\n                | ifSt\n    consoleLog : CONSOLE PUNTO LOG PARIZQ exp PARDER PTCOMA\n    declaration  : LET ID DOSPT typeDef decArray IGUAL exp PTCOMA\n    decArray : CORIZQ CORDER\n                | empty \n    function : FUNCTION ID parametersFunc DOSPT typeDef block\n    parametersFunc   : PARIZQ parameters PARDER\n                        | PARIZQ PARDER\n    parameters   : parameters COMA parameter\n                    | parameter\n    parameter    : ID DOSPT typeDef\n    block    : LLAVEIZQ instructions LLAVEDER\n                | LLAVEIZQ LLAVEDER\n    callFuncSt   : ID parametersCallFunc PTCOMA\n    parametersCallFunc   : PARIZQ listValues PARDER\n                            | PARIZQ PARDER\n    assignment   : ID IGUAL exp PTCOMA\n    listValues   : listValues COMA exp\n                    | exp\n    typeDef  : RSTRING\n                | RINT\n                | RFLOAT\n    exp  : exp MAS exp\n            | exp MENOS exp\n            | exp MULTIPLICACION exp\n            | exp DIVISION exp\n            | exp MAYOR exp\n            | exp MENOR exp\n            | exp IGUALQUE exp\n    exp : PARIZQ exp PARDERexp : CORIZQ listValues CORDERexp  : ENTERO\n    exp  : DECIMAL\n    exp  : STRING\n    exp  : ID\n            | ID listArray\n    listArray    : listArray  CORIZQ exp CORDER \n                    | CORIZQ exp CORDER\n    '
     
-_lr_action_items = {'CONSOLE':([0,2,3,4,6,25,],[5,5,-3,-4,-2,-5,]),'$end':([1,2,3,4,6,25,],[0,-1,-3,-4,-2,-5,]),'PUNTO':([5,],[7,]),'LOG':([7,],[8,]),'PARIZQ':([8,9,10,17,18,19,20,21,22,23,],[9,10,10,10,10,10,10,10,10,10,]),'ENTERO':([9,10,17,18,19,20,21,22,23,],[12,12,12,12,12,12,12,12,12,]),'DECIMAL':([9,10,17,18,19,20,21,22,23,],[13,13,13,13,13,13,13,13,13,]),'STRING':([9,10,17,18,19,20,21,22,23,],[14,14,14,14,14,14,14,14,14,]),'PARDER':([11,12,13,14,15,24,26,27,28,29,30,31,32,],[16,-14,-15,-16,24,-13,-6,-7,-8,-9,-10,-11,-12,]),'MAS':([11,12,13,14,15,24,26,27,28,29,30,31,32,],[17,-14,-15,-16,17,-13,-6,-7,-8,-9,17,17,17,]),'MENOS':([11,12,13,14,15,24,26,27,28,29,30,31,32,],[18,-14,-15,-16,18,-13,-6,-7,-8,-9,18,18,18,]),'MULTIPLICACION':([11,12,13,14,15,24,26,27,28,29,30,31,32,],[19,-14,-15,-16,19,-13,19,19,-8,-9,19,19,19,]),'DIVISION':([11,12,13,14,15,24,26,27,28,29,30,31,32,],[20,-14,-15,-16,20,-13,20,20,-8,-9,20,20,20,]),'MAYOR':([11,12,13,14,15,24,26,27,28,29,30,31,32,],[21,-14,-15,-16,21,-13,-6,-7,-8,-9,-10,-11,21,]),'MENOR':([11,12,13,14,15,24,26,27,28,29,30,31,32,],[22,-14,-15,-16,22,-13,-6,-7,-8,-9,-10,-11,22,]),'IGUAL':([11,12,13,14,15,24,26,27,28,29,30,31,32,],[23,-14,-15,-16,23,-13,-6,-7,-8,-9,-10,-11,-12,]),'PTCOMA':([16,],[25,]),}
+_lr_action_items = {'CONSOLE':([0,2,3,4,5,6,7,8,9,10,17,28,50,89,90,97,100,101,102,104,105,108,109,110,],[11,11,-3,-4,-5,-6,-7,-8,-9,-10,-2,-28,-31,-12,11,-20,11,-27,-13,-15,-16,-26,-14,-17,]),'LET':([0,2,3,4,5,6,7,8,9,10,17,28,50,89,90,97,100,101,102,104,105,108,109,110,],[12,12,-3,-4,-5,-6,-7,-8,-9,-10,-2,-28,-31,-12,12,-20,12,-27,-13,-15,-16,-26,-14,-17,]),'FUNCTION':([0,2,3,4,5,6,7,8,9,10,17,28,50,89,90,97,100,101,102,104,105,108,109,110,],[14,14,-3,-4,-5,-6,-7,-8,-9,-10,-2,-28,-31,-12,14,-20,14,-27,-13,-15,-16,-26,-14,-17,]),'ID':([0,2,3,4,5,6,7,8,9,10,12,14,17,21,22,24,25,28,31,32,40,43,49,50,51,52,53,54,55,56,57,61,73,87,89,90,93,97,100,101,102,104,105,108,109,110,],[13,13,-3,-4,-5,-6,-7,-8,-9,-10,19,23,-2,29,29,29,29,-28,29,29,66,29,29,-31,29,29,29,29,29,29,29,29,29,66,-12,13,29,-20,13,-27,-13,-15,-16,-26,-14,-17,]),'RWHILE':([0,2,3,4,5,6,7,8,9,10,17,28,50,89,90,97,100,101,102,104,105,108,109,110,],[15,15,-3,-4,-5,-6,-7,-8,-9,-10,-2,-28,-31,-12,15,-20,15,-27,-13,-15,-16,-26,-14,-17,]),'RIF':([0,2,3,4,5,6,7,8,9,10,17,28,50,89,90,91,97,100,101,102,104,105,108,109,110,],[16,16,-3,-4,-5,-6,-7,-8,-9,-10,-2,-28,-31,-12,16,16,-20,16,-27,-13,-15,-16,-26,-14,-17,]),'$end':([1,2,3,4,5,6,7,8,9,10,17,28,50,89,97,101,102,104,105,108,109,110,],[0,-1,-3,-4,-5,-6,-7,-8,-9,-10,-2,-28,-31,-12,-20,-27,-13,-15,-16,-26,-14,-17,]),'LLAVEDER':([3,4,5,6,7,8,9,10,17,28,50,89,90,97,100,101,102,104,105,108,109,110,],[-3,-4,-5,-6,-7,-8,-9,-10,-2,-28,-31,-12,101,-20,108,-27,-13,-15,-16,-26,-14,-17,]),'PUNTO':([11,],[18,]),'IGUAL':([13,44,45,46,47,70,72,94,],[21,-11,-34,-35,-36,93,-19,-18,]),'PARIZQ':([13,15,16,21,22,23,24,25,26,31,32,43,49,51,52,53,54,55,56,57,61,73,93,],[22,24,25,31,31,40,31,31,43,31,31,31,31,31,31,31,31,31,31,31,31,31,31,]),'LOG':([18,],[26,]),'DOSPT':([19,39,64,66,86,],[27,62,-22,88,-21,]),'PTCOMA':([20,29,30,33,34,35,37,48,60,75,76,77,78,79,80,81,82,83,92,96,106,107,],[28,-49,50,-46,-47,-48,-30,-50,-29,-37,-38,-39,-40,-41,-42,-43,-44,-45,105,-52,110,-51,]),'CORIZQ':([21,22,24,25,29,31,32,43,44,45,46,47,48,49,51,52,53,54,55,56,57,61,73,93,96,107,],[32,32,32,32,49,32,32,32,71,-34,-35,-36,73,32,32,32,32,32,32,32,32,32,32,32,-52,-51,]),'ENTERO':([21,22,24,25,31,32,43,49,51,52,53,54,55,56,57,61,73,93,],[33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,]),'DECIMAL':([21,22,24,25,31,32,43,49,51,52,53,54,55,56,57,61,73,93,],[34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,]),'STRING':([21,22,24,25,31,32,43,49,51,52,53,54,55,56,57,61,73,93,],[35,35,35,35,35,35,35,35,35,35,35,35,35,35,35,35,35,35,]),'PARDER':([22,29,33,34,35,36,38,40,41,42,45,46,47,48,58,63,65,69,75,76,77,78,79,80,81,82,83,84,96,98,99,107,],[37,-49,-46,-47,-48,60,-33,64,67,68,-34,-35,-36,-50,82,86,-24,92,-37,-38,-39,-40,-41,-42,-43,-44,-45,-32,-52,-23,-25,-51,]),'RSTRING':([27,62,88,],[45,45,45,]),'RINT':([27,62,88,],[46,46,46,]),'RFLOAT':([27,62,88,],[47,47,47,]),'MAS':([29,30,33,34,35,38,41,42,48,58,69,74,75,76,77,78,79,80,81,82,83,84,95,96,106,107,],[-49,51,-46,-47,-48,51,51,51,-50,51,51,51,-37,-38,-39,-40,51,51,51,-44,-45,51,51,-52,51,-51,]),'MENOS':([29,30,33,34,35,38,41,42,48,58,69,74,75,76,77,78,79,80,81,82,83,84,95,96,106,107,],[-49,52,-46,-47,-48,52,52,52,-50,52,52,52,-37,-38,-39,-40,52,52,52,-44,-45,52,52,-52,52,-51,]),'MULTIPLICACION':([29,30,33,34,35,38,41,42,48,58,69,74,75,76,77,78,79,80,81,82,83,84,95,96,106,107,],[-49,53,-46,-47,-48,53,53,53,-50,53,53,53,53,53,-39,-40,53,53,53,-44,-45,53,53,-52,53,-51,]),'DIVISION':([29,30,33,34,35,38,41,42,48,58,69,74,75,76,77,78,79,80,81,82,83,84,95,96,106,107,],[-49,54,-46,-47,-48,54,54,54,-50,54,54,54,54,54,-39,-40,54,54,54,-44,-45,54,54,-52,54,-51,]),'MAYOR':([29,30,33,34,35,38,41,42,48,58,69,74,75,76,77,78,79,80,81,82,83,84,95,96,106,107,],[-49,55,-46,-47,-48,55,55,55,-50,55,55,55,-37,-38,-39,-40,-41,-42,55,-44,-45,55,55,-52,55,-51,]),'MENOR':([29,30,33,34,35,38,41,42,48,58,69,74,75,76,77,78,79,80,81,82,83,84,95,96,106,107,],[-49,56,-46,-47,-48,56,56,56,-50,56,56,56,-37,-38,-39,-40,-41,-42,56,-44,-45,56,56,-52,56,-51,]),'IGUALQUE':([29,30,33,34,35,38,41,42,48,58,69,74,75,76,77,78,79,80,81,82,83,84,95,96,106,107,],[-49,57,-46,-47,-48,57,57,57,-50,57,57,57,-37,-38,-39,-40,-41,-42,-43,-44,-45,57,57,-52,57,-51,]),'COMA':([29,33,34,35,36,38,45,46,47,48,59,63,65,75,76,77,78,79,80,81,82,83,84,96,98,99,107,],[-49,-46,-47,-48,61,-33,-34,-35,-36,-50,61,87,-24,-37,-38,-39,-40,-41,-42,-43,-44,-45,-32,-52,-23,-25,-51,]),'CORDER':([29,33,34,35,38,48,59,71,74,75,76,77,78,79,80,81,82,83,84,95,96,107,],[-49,-46,-47,-48,-33,-50,83,94,96,-37,-38,-39,-40,-41,-42,-43,-44,-45,-32,107,-52,-51,]),'LLAVEIZQ':([45,46,47,67,68,85,103,],[-34,-35,-36,90,90,90,90,]),'RELSE':([91,101,108,],[103,-27,-26,]),}
 
 _lr_action = {}
 for _k, _v in _lr_action_items.items():
@@ -17,7 +17,7 @@ for _k, _v in _lr_action_items.items():
       _lr_action[_x][_k] = _y
 del _lr_action_items
 
-_lr_goto_items = {'initial':([0,],[1,]),'instructions':([0,],[2,]),'instruction':([0,2,],[3,6,]),'consoleLog':([0,2,],[4,4,]),'exp':([9,10,17,18,19,20,21,22,23,],[11,15,26,27,28,29,30,31,32,]),}
+_lr_goto_items = {'initial':([0,],[1,]),'instructions':([0,90,],[2,100,]),'instruction':([0,2,90,100,],[3,17,3,17,]),'consoleLog':([0,2,90,100,],[4,4,4,4,]),'declaration':([0,2,90,100,],[5,5,5,5,]),'function':([0,2,90,100,],[6,6,6,6,]),'callFuncSt':([0,2,90,100,],[7,7,7,7,]),'assignment':([0,2,90,100,],[8,8,8,8,]),'whileSt':([0,2,90,100,],[9,9,9,9,]),'ifSt':([0,2,90,91,100,],[10,10,10,104,10,]),'parametersCallFunc':([13,],[20,]),'exp':([21,22,24,25,31,32,43,49,51,52,53,54,55,56,57,61,73,93,],[30,38,41,42,58,38,69,74,75,76,77,78,79,80,81,84,95,106,]),'listValues':([22,32,],[36,59,]),'parametersFunc':([23,],[39,]),'typeDef':([27,62,88,],[44,85,99,]),'listArray':([29,],[48,]),'parameters':([40,],[63,]),'parameter':([40,87,],[65,98,]),'decArray':([44,],[70,]),'empty':([44,],[72,]),'block':([67,68,85,103,],[89,91,97,109,]),'elseSt':([91,],[102,]),}
 
 _lr_goto = {}
 for _k, _v in _lr_goto_items.items():
@@ -27,20 +27,56 @@ for _k, _v in _lr_goto_items.items():
 del _lr_goto_items
 _lr_productions = [
   ("S' -> initial","S'",1,None,None,None),
-  ('initial -> instructions','initial',1,'p_initial','Panther.py',86),
-  ('instructions -> instructions instruction','instructions',2,'p_instructions','Panther.py',93),
-  ('instructions -> instruction','instructions',1,'p_instructions','Panther.py',94),
-  ('instruction -> consoleLog','instruction',1,'p_instruction','Panther.py',104),
-  ('consoleLog -> CONSOLE PUNTO LOG PARIZQ exp PARDER PTCOMA','consoleLog',7,'p_consoleLog','Panther.py',110),
-  ('exp -> exp MAS exp','exp',3,'p_exp_aritmetica','Panther.py',116),
-  ('exp -> exp MENOS exp','exp',3,'p_exp_aritmetica','Panther.py',117),
-  ('exp -> exp MULTIPLICACION exp','exp',3,'p_exp_aritmetica','Panther.py',118),
-  ('exp -> exp DIVISION exp','exp',3,'p_exp_aritmetica','Panther.py',119),
-  ('exp -> exp MAYOR exp','exp',3,'p_exp_aritmetica','Panther.py',120),
-  ('exp -> exp MENOR exp','exp',3,'p_exp_aritmetica','Panther.py',121),
-  ('exp -> exp IGUAL exp','exp',3,'p_exp_aritmetica','Panther.py',122),
-  ('exp -> PARIZQ exp PARDER','exp',3,'p_exp_agrupacion','Panther.py',133),
-  ('exp -> ENTERO','exp',1,'p_exp_valor_entero','Panther.py',137),
-  ('exp -> DECIMAL','exp',1,'p_exp_valor_decimal','Panther.py',142),
-  ('exp -> STRING','exp',1,'p_exp_valor_string','Panther.py',147),
+  ('initial -> instructions','initial',1,'p_initial','Panther.py',131),
+  ('instructions -> instructions instruction','instructions',2,'p_instructions','Panther.py',140),
+  ('instructions -> instruction','instructions',1,'p_instructions','Panther.py',141),
+  ('instruction -> consoleLog','instruction',1,'p_instruction','Panther.py',151),
+  ('instruction -> declaration','instruction',1,'p_instruction','Panther.py',152),
+  ('instruction -> function','instruction',1,'p_instruction','Panther.py',153),
+  ('instruction -> callFuncSt','instruction',1,'p_instruction','Panther.py',154),
+  ('instruction -> assignment','instruction',1,'p_instruction','Panther.py',155),
+  ('instruction -> whileSt','instruction',1,'p_instruction','Panther.py',156),
+  ('instruction -> ifSt','instruction',1,'p_instruction','Panther.py',157),
+  ('empty -> <empty>','empty',0,'p_empty','Panther.py',162),
+  ('whileSt -> RWHILE PARIZQ exp PARDER block','whileSt',5,'p_whileSt','Panther.py',167),
+  ('ifSt -> RIF PARIZQ exp PARDER block elseSt','ifSt',6,'p_ifSt','Panther.py',172),
+  ('elseSt -> RELSE block','elseSt',2,'p_elseSt','Panther.py',177),
+  ('elseSt -> ifSt','elseSt',1,'p_elseSt','Panther.py',178),
+  ('consoleLog -> CONSOLE PUNTO LOG PARIZQ exp PARDER PTCOMA','consoleLog',7,'p_consoleLog','Panther.py',186),
+  ('declaration -> LET ID DOSPT typeDef decArray IGUAL exp PTCOMA','declaration',8,'p_declaration','Panther.py',191),
+  ('decArray -> CORIZQ CORDER','decArray',2,'p_decArray','Panther.py',197),
+  ('decArray -> empty','decArray',1,'p_decArray','Panther.py',198),
+  ('function -> FUNCTION ID parametersFunc DOSPT typeDef block','function',6,'p_function','Panther.py',206),
+  ('parametersFunc -> PARIZQ parameters PARDER','parametersFunc',3,'p_parametersFunc','Panther.py',211),
+  ('parametersFunc -> PARIZQ PARDER','parametersFunc',2,'p_parametersFunc','Panther.py',212),
+  ('parameters -> parameters COMA parameter','parameters',3,'p_parameters','Panther.py',220),
+  ('parameters -> parameter','parameters',1,'p_parameters','Panther.py',221),
+  ('parameter -> ID DOSPT typeDef','parameter',3,'p_parameter','Panther.py',230),
+  ('block -> LLAVEIZQ instructions LLAVEDER','block',3,'p_block','Panther.py',235),
+  ('block -> LLAVEIZQ LLAVEDER','block',2,'p_block','Panther.py',236),
+  ('callFuncSt -> ID parametersCallFunc PTCOMA','callFuncSt',3,'p_callFuncSt','Panther.py',244),
+  ('parametersCallFunc -> PARIZQ listValues PARDER','parametersCallFunc',3,'p_parametersCallFunc','Panther.py',249),
+  ('parametersCallFunc -> PARIZQ PARDER','parametersCallFunc',2,'p_parametersCallFunc','Panther.py',250),
+  ('assignment -> ID IGUAL exp PTCOMA','assignment',4,'p_assignment','Panther.py',258),
+  ('listValues -> listValues COMA exp','listValues',3,'p_listValues','Panther.py',265),
+  ('listValues -> exp','listValues',1,'p_listValues','Panther.py',266),
+  ('typeDef -> RSTRING','typeDef',1,'p_typeDef','Panther.py',275),
+  ('typeDef -> RINT','typeDef',1,'p_typeDef','Panther.py',276),
+  ('typeDef -> RFLOAT','typeDef',1,'p_typeDef','Panther.py',277),
+  ('exp -> exp MAS exp','exp',3,'p_exp_aritmetica','Panther.py',285),
+  ('exp -> exp MENOS exp','exp',3,'p_exp_aritmetica','Panther.py',286),
+  ('exp -> exp MULTIPLICACION exp','exp',3,'p_exp_aritmetica','Panther.py',287),
+  ('exp -> exp DIVISION exp','exp',3,'p_exp_aritmetica','Panther.py',288),
+  ('exp -> exp MAYOR exp','exp',3,'p_exp_aritmetica','Panther.py',289),
+  ('exp -> exp MENOR exp','exp',3,'p_exp_aritmetica','Panther.py',290),
+  ('exp -> exp IGUALQUE exp','exp',3,'p_exp_aritmetica','Panther.py',291),
+  ('exp -> PARIZQ exp PARDER','exp',3,'p_exp_agrupacion','Panther.py',302),
+  ('exp -> CORIZQ listValues CORDER','exp',3,'p_exp_array','Panther.py',306),
+  ('exp -> ENTERO','exp',1,'p_exp_valor_entero','Panther.py',310),
+  ('exp -> DECIMAL','exp',1,'p_exp_valor_decimal','Panther.py',315),
+  ('exp -> STRING','exp',1,'p_exp_valor_string','Panther.py',320),
+  ('exp -> ID','exp',1,'p_exp_variable','Panther.py',325),
+  ('exp -> ID listArray','exp',2,'p_exp_variable','Panther.py',326),
+  ('listArray -> listArray CORIZQ exp CORDER','listArray',4,'p_list_array','Panther.py',334),
+  ('listArray -> CORIZQ exp CORDER','listArray',3,'p_list_array','Panther.py',335),
 ]

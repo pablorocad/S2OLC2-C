@@ -1,1 +1,3 @@
-console.log("Hola" == "aloH");
+let x:float = 5.7;
+
+console.log(x + 5 + "String");

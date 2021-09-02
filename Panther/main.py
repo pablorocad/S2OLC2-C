@@ -19,9 +19,9 @@
 # op = Arithmetic(ex,ex2,arithmeticOperation.DIV)
 # ins = ConsoleLog(op)
 # ins.execute(var)
-from Analyzer.Panther import parser
+from AnalyzerTree.PantherTree import parser
 
 f = open("./entrada.txt", "r")
 input = f.read()
-print(input)
+#print(input)
 parser.parse(input)

@@ -4,6 +4,7 @@ class Symbol:
         self.id = id
         self.value = value
         self.type = type
+        self.array = False
 
     def getId(self):
         return self.id
@@ -13,3 +14,6 @@ class Symbol:
 
     def getType(self):
         return self.type
+
+    def isArray(self):
+        return self.array
