@@ -1,0 +1,1025 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> initial
+Rule 1     initial -> instructions
+Rule 2     instructions -> instructions instruction
+Rule 3     instructions -> instruction
+Rule 4     instruction -> consoleLog
+Rule 5     instruction -> declaration
+Rule 6     instruction -> whileSt
+Rule 7     block -> LLAVEIZQ instructions LLAVEDER
+Rule 8     block -> LLAVEIZQ LLAVEDER
+Rule 9     whileSt -> RWHILE PARIZQ exp PARDER block
+Rule 10    consoleLog -> CONSOLE PUNTO LOG PARIZQ exp PARDER PTCOMA
+Rule 11    declaration -> LET ID DOSPT typeDef IGUAL exp PTCOMA
+Rule 12    typeDef -> RSTRING
+Rule 13    typeDef -> RINT
+Rule 14    typeDef -> RFLOAT
+Rule 15    typeDef -> RBOOLEAN
+Rule 16    exp -> exp MAS exp
+Rule 17    exp -> exp MENOS exp
+Rule 18    exp -> exp MULTIPLICACION exp
+Rule 19    exp -> exp DIVISION exp
+Rule 20    exp -> exp MAYOR exp
+Rule 21    exp -> exp MENOR exp
+Rule 22    exp -> exp IGUALQUE exp
+Rule 23    exp -> PARIZQ exp PARDER
+Rule 24    exp -> ENTERO
+Rule 25    exp -> DECIMAL
+Rule 26    exp -> STRING
+Rule 27    exp -> ID
+
+Terminals, with rules where they appear
+
+CONSOLE              : 10
+DECIMAL              : 25
+DIVISION             : 19
+DOSPT                : 11
+ENTERO               : 24
+ID                   : 11 27
+IGUAL                : 11
+IGUALQUE             : 22
+LET                  : 11
+LLAVEDER             : 7 8
+LLAVEIZQ             : 7 8
+LOG                  : 10
+MAS                  : 16
+MAYOR                : 20
+MENOR                : 21
+MENOS                : 17
+MULTIPLICACION       : 18
+PARDER               : 9 10 23
+PARIZQ               : 9 10 23
+PTCOMA               : 10 11
+PUNTO                : 10
+RBOOLEAN             : 15
+RFLOAT               : 14
+RINT                 : 13
+RSTRING              : 12
+RWHILE               : 9
+STRING               : 26
+error                : 
+
+Nonterminals, with rules where they appear
+
+block                : 9
+consoleLog           : 4
+declaration          : 5
+exp                  : 9 10 11 16 16 17 17 18 18 19 19 20 20 21 21 22 22 23
+initial              : 0
+instruction          : 2 3
+instructions         : 1 2 7
+typeDef              : 11
+whileSt              : 6
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . initial
+    (1) initial -> . instructions
+    (2) instructions -> . instructions instruction
+    (3) instructions -> . instruction
+    (4) instruction -> . consoleLog
+    (5) instruction -> . declaration
+    (6) instruction -> . whileSt
+    (10) consoleLog -> . CONSOLE PUNTO LOG PARIZQ exp PARDER PTCOMA
+    (11) declaration -> . LET ID DOSPT typeDef IGUAL exp PTCOMA
+    (9) whileSt -> . RWHILE PARIZQ exp PARDER block
+
+    CONSOLE         shift and go to state 7
+    LET             shift and go to state 8
+    RWHILE          shift and go to state 9
+
+    initial                        shift and go to state 1
+    instructions                   shift and go to state 2
+    instruction                    shift and go to state 3
+    consoleLog                     shift and go to state 4
+    declaration                    shift and go to state 5
+    whileSt                        shift and go to state 6
+
+state 1
+
+    (0) S' -> initial .
+
+
+
+state 2
+
+    (1) initial -> instructions .
+    (2) instructions -> instructions . instruction
+    (4) instruction -> . consoleLog
+    (5) instruction -> . declaration
+    (6) instruction -> . whileSt
+    (10) consoleLog -> . CONSOLE PUNTO LOG PARIZQ exp PARDER PTCOMA
+    (11) declaration -> . LET ID DOSPT typeDef IGUAL exp PTCOMA
+    (9) whileSt -> . RWHILE PARIZQ exp PARDER block
+
+    $end            reduce using rule 1 (initial -> instructions .)
+    CONSOLE         shift and go to state 7
+    LET             shift and go to state 8
+    RWHILE          shift and go to state 9
+
+    instruction                    shift and go to state 10
+    consoleLog                     shift and go to state 4
+    declaration                    shift and go to state 5
+    whileSt                        shift and go to state 6
+
+state 3
+
+    (3) instructions -> instruction .
+
+    CONSOLE         reduce using rule 3 (instructions -> instruction .)
+    LET             reduce using rule 3 (instructions -> instruction .)
+    RWHILE          reduce using rule 3 (instructions -> instruction .)
+    $end            reduce using rule 3 (instructions -> instruction .)
+    LLAVEDER        reduce using rule 3 (instructions -> instruction .)
+
+
+state 4
+
+    (4) instruction -> consoleLog .
+
+    CONSOLE         reduce using rule 4 (instruction -> consoleLog .)
+    LET             reduce using rule 4 (instruction -> consoleLog .)
+    RWHILE          reduce using rule 4 (instruction -> consoleLog .)
+    $end            reduce using rule 4 (instruction -> consoleLog .)
+    LLAVEDER        reduce using rule 4 (instruction -> consoleLog .)
+
+
+state 5
+
+    (5) instruction -> declaration .
+
+    CONSOLE         reduce using rule 5 (instruction -> declaration .)
+    LET             reduce using rule 5 (instruction -> declaration .)
+    RWHILE          reduce using rule 5 (instruction -> declaration .)
+    $end            reduce using rule 5 (instruction -> declaration .)
+    LLAVEDER        reduce using rule 5 (instruction -> declaration .)
+
+
+state 6
+
+    (6) instruction -> whileSt .
+
+    CONSOLE         reduce using rule 6 (instruction -> whileSt .)
+    LET             reduce using rule 6 (instruction -> whileSt .)
+    RWHILE          reduce using rule 6 (instruction -> whileSt .)
+    $end            reduce using rule 6 (instruction -> whileSt .)
+    LLAVEDER        reduce using rule 6 (instruction -> whileSt .)
+
+
+state 7
+
+    (10) consoleLog -> CONSOLE . PUNTO LOG PARIZQ exp PARDER PTCOMA
+
+    PUNTO           shift and go to state 11
+
+
+state 8
+
+    (11) declaration -> LET . ID DOSPT typeDef IGUAL exp PTCOMA
+
+    ID              shift and go to state 12
+
+
+state 9
+
+    (9) whileSt -> RWHILE . PARIZQ exp PARDER block
+
+    PARIZQ          shift and go to state 13
+
+
+state 10
+
+    (2) instructions -> instructions instruction .
+
+    CONSOLE         reduce using rule 2 (instructions -> instructions instruction .)
+    LET             reduce using rule 2 (instructions -> instructions instruction .)
+    RWHILE          reduce using rule 2 (instructions -> instructions instruction .)
+    $end            reduce using rule 2 (instructions -> instructions instruction .)
+    LLAVEDER        reduce using rule 2 (instructions -> instructions instruction .)
+
+
+state 11
+
+    (10) consoleLog -> CONSOLE PUNTO . LOG PARIZQ exp PARDER PTCOMA
+
+    LOG             shift and go to state 14
+
+
+state 12
+
+    (11) declaration -> LET ID . DOSPT typeDef IGUAL exp PTCOMA
+
+    DOSPT           shift and go to state 15
+
+
+state 13
+
+    (9) whileSt -> RWHILE PARIZQ . exp PARDER block
+    (16) exp -> . exp MAS exp
+    (17) exp -> . exp MENOS exp
+    (18) exp -> . exp MULTIPLICACION exp
+    (19) exp -> . exp DIVISION exp
+    (20) exp -> . exp MAYOR exp
+    (21) exp -> . exp MENOR exp
+    (22) exp -> . exp IGUALQUE exp
+    (23) exp -> . PARIZQ exp PARDER
+    (24) exp -> . ENTERO
+    (25) exp -> . DECIMAL
+    (26) exp -> . STRING
+    (27) exp -> . ID
+
+    PARIZQ          shift and go to state 16
+    ENTERO          shift and go to state 18
+    DECIMAL         shift and go to state 19
+    STRING          shift and go to state 20
+    ID              shift and go to state 21
+
+    exp                            shift and go to state 17
+
+state 14
+
+    (10) consoleLog -> CONSOLE PUNTO LOG . PARIZQ exp PARDER PTCOMA
+
+    PARIZQ          shift and go to state 22
+
+
+state 15
+
+    (11) declaration -> LET ID DOSPT . typeDef IGUAL exp PTCOMA
+    (12) typeDef -> . RSTRING
+    (13) typeDef -> . RINT
+    (14) typeDef -> . RFLOAT
+    (15) typeDef -> . RBOOLEAN
+
+    RSTRING         shift and go to state 24
+    RINT            shift and go to state 25
+    RFLOAT          shift and go to state 26
+    RBOOLEAN        shift and go to state 27
+
+    typeDef                        shift and go to state 23
+
+state 16
+
+    (23) exp -> PARIZQ . exp PARDER
+    (16) exp -> . exp MAS exp
+    (17) exp -> . exp MENOS exp
+    (18) exp -> . exp MULTIPLICACION exp
+    (19) exp -> . exp DIVISION exp
+    (20) exp -> . exp MAYOR exp
+    (21) exp -> . exp MENOR exp
+    (22) exp -> . exp IGUALQUE exp
+    (23) exp -> . PARIZQ exp PARDER
+    (24) exp -> . ENTERO
+    (25) exp -> . DECIMAL
+    (26) exp -> . STRING
+    (27) exp -> . ID
+
+    PARIZQ          shift and go to state 16
+    ENTERO          shift and go to state 18
+    DECIMAL         shift and go to state 19
+    STRING          shift and go to state 20
+    ID              shift and go to state 21
+
+    exp                            shift and go to state 28
+
+state 17
+
+    (9) whileSt -> RWHILE PARIZQ exp . PARDER block
+    (16) exp -> exp . MAS exp
+    (17) exp -> exp . MENOS exp
+    (18) exp -> exp . MULTIPLICACION exp
+    (19) exp -> exp . DIVISION exp
+    (20) exp -> exp . MAYOR exp
+    (21) exp -> exp . MENOR exp
+    (22) exp -> exp . IGUALQUE exp
+
+    PARDER          shift and go to state 29
+    MAS             shift and go to state 30
+    MENOS           shift and go to state 31
+    MULTIPLICACION  shift and go to state 32
+    DIVISION        shift and go to state 33
+    MAYOR           shift and go to state 34
+    MENOR           shift and go to state 35
+    IGUALQUE        shift and go to state 36
+
+
+state 18
+
+    (24) exp -> ENTERO .
+
+    PARDER          reduce using rule 24 (exp -> ENTERO .)
+    MAS             reduce using rule 24 (exp -> ENTERO .)
+    MENOS           reduce using rule 24 (exp -> ENTERO .)
+    MULTIPLICACION  reduce using rule 24 (exp -> ENTERO .)
+    DIVISION        reduce using rule 24 (exp -> ENTERO .)
+    MAYOR           reduce using rule 24 (exp -> ENTERO .)
+    MENOR           reduce using rule 24 (exp -> ENTERO .)
+    IGUALQUE        reduce using rule 24 (exp -> ENTERO .)
+    PTCOMA          reduce using rule 24 (exp -> ENTERO .)
+
+
+state 19
+
+    (25) exp -> DECIMAL .
+
+    PARDER          reduce using rule 25 (exp -> DECIMAL .)
+    MAS             reduce using rule 25 (exp -> DECIMAL .)
+    MENOS           reduce using rule 25 (exp -> DECIMAL .)
+    MULTIPLICACION  reduce using rule 25 (exp -> DECIMAL .)
+    DIVISION        reduce using rule 25 (exp -> DECIMAL .)
+    MAYOR           reduce using rule 25 (exp -> DECIMAL .)
+    MENOR           reduce using rule 25 (exp -> DECIMAL .)
+    IGUALQUE        reduce using rule 25 (exp -> DECIMAL .)
+    PTCOMA          reduce using rule 25 (exp -> DECIMAL .)
+
+
+state 20
+
+    (26) exp -> STRING .
+
+    PARDER          reduce using rule 26 (exp -> STRING .)
+    MAS             reduce using rule 26 (exp -> STRING .)
+    MENOS           reduce using rule 26 (exp -> STRING .)
+    MULTIPLICACION  reduce using rule 26 (exp -> STRING .)
+    DIVISION        reduce using rule 26 (exp -> STRING .)
+    MAYOR           reduce using rule 26 (exp -> STRING .)
+    MENOR           reduce using rule 26 (exp -> STRING .)
+    IGUALQUE        reduce using rule 26 (exp -> STRING .)
+    PTCOMA          reduce using rule 26 (exp -> STRING .)
+
+
+state 21
+
+    (27) exp -> ID .
+
+    PARDER          reduce using rule 27 (exp -> ID .)
+    MAS             reduce using rule 27 (exp -> ID .)
+    MENOS           reduce using rule 27 (exp -> ID .)
+    MULTIPLICACION  reduce using rule 27 (exp -> ID .)
+    DIVISION        reduce using rule 27 (exp -> ID .)
+    MAYOR           reduce using rule 27 (exp -> ID .)
+    MENOR           reduce using rule 27 (exp -> ID .)
+    IGUALQUE        reduce using rule 27 (exp -> ID .)
+    PTCOMA          reduce using rule 27 (exp -> ID .)
+
+
+state 22
+
+    (10) consoleLog -> CONSOLE PUNTO LOG PARIZQ . exp PARDER PTCOMA
+    (16) exp -> . exp MAS exp
+    (17) exp -> . exp MENOS exp
+    (18) exp -> . exp MULTIPLICACION exp
+    (19) exp -> . exp DIVISION exp
+    (20) exp -> . exp MAYOR exp
+    (21) exp -> . exp MENOR exp
+    (22) exp -> . exp IGUALQUE exp
+    (23) exp -> . PARIZQ exp PARDER
+    (24) exp -> . ENTERO
+    (25) exp -> . DECIMAL
+    (26) exp -> . STRING
+    (27) exp -> . ID
+
+    PARIZQ          shift and go to state 16
+    ENTERO          shift and go to state 18
+    DECIMAL         shift and go to state 19
+    STRING          shift and go to state 20
+    ID              shift and go to state 21
+
+    exp                            shift and go to state 37
+
+state 23
+
+    (11) declaration -> LET ID DOSPT typeDef . IGUAL exp PTCOMA
+
+    IGUAL           shift and go to state 38
+
+
+state 24
+
+    (12) typeDef -> RSTRING .
+
+    IGUAL           reduce using rule 12 (typeDef -> RSTRING .)
+
+
+state 25
+
+    (13) typeDef -> RINT .
+
+    IGUAL           reduce using rule 13 (typeDef -> RINT .)
+
+
+state 26
+
+    (14) typeDef -> RFLOAT .
+
+    IGUAL           reduce using rule 14 (typeDef -> RFLOAT .)
+
+
+state 27
+
+    (15) typeDef -> RBOOLEAN .
+
+    IGUAL           reduce using rule 15 (typeDef -> RBOOLEAN .)
+
+
+state 28
+
+    (23) exp -> PARIZQ exp . PARDER
+    (16) exp -> exp . MAS exp
+    (17) exp -> exp . MENOS exp
+    (18) exp -> exp . MULTIPLICACION exp
+    (19) exp -> exp . DIVISION exp
+    (20) exp -> exp . MAYOR exp
+    (21) exp -> exp . MENOR exp
+    (22) exp -> exp . IGUALQUE exp
+
+    PARDER          shift and go to state 39
+    MAS             shift and go to state 30
+    MENOS           shift and go to state 31
+    MULTIPLICACION  shift and go to state 32
+    DIVISION        shift and go to state 33
+    MAYOR           shift and go to state 34
+    MENOR           shift and go to state 35
+    IGUALQUE        shift and go to state 36
+
+
+state 29
+
+    (9) whileSt -> RWHILE PARIZQ exp PARDER . block
+    (7) block -> . LLAVEIZQ instructions LLAVEDER
+    (8) block -> . LLAVEIZQ LLAVEDER
+
+    LLAVEIZQ        shift and go to state 41
+
+    block                          shift and go to state 40
+
+state 30
+
+    (16) exp -> exp MAS . exp
+    (16) exp -> . exp MAS exp
+    (17) exp -> . exp MENOS exp
+    (18) exp -> . exp MULTIPLICACION exp
+    (19) exp -> . exp DIVISION exp
+    (20) exp -> . exp MAYOR exp
+    (21) exp -> . exp MENOR exp
+    (22) exp -> . exp IGUALQUE exp
+    (23) exp -> . PARIZQ exp PARDER
+    (24) exp -> . ENTERO
+    (25) exp -> . DECIMAL
+    (26) exp -> . STRING
+    (27) exp -> . ID
+
+    PARIZQ          shift and go to state 16
+    ENTERO          shift and go to state 18
+    DECIMAL         shift and go to state 19
+    STRING          shift and go to state 20
+    ID              shift and go to state 21
+
+    exp                            shift and go to state 42
+
+state 31
+
+    (17) exp -> exp MENOS . exp
+    (16) exp -> . exp MAS exp
+    (17) exp -> . exp MENOS exp
+    (18) exp -> . exp MULTIPLICACION exp
+    (19) exp -> . exp DIVISION exp
+    (20) exp -> . exp MAYOR exp
+    (21) exp -> . exp MENOR exp
+    (22) exp -> . exp IGUALQUE exp
+    (23) exp -> . PARIZQ exp PARDER
+    (24) exp -> . ENTERO
+    (25) exp -> . DECIMAL
+    (26) exp -> . STRING
+    (27) exp -> . ID
+
+    PARIZQ          shift and go to state 16
+    ENTERO          shift and go to state 18
+    DECIMAL         shift and go to state 19
+    STRING          shift and go to state 20
+    ID              shift and go to state 21
+
+    exp                            shift and go to state 43
+
+state 32
+
+    (18) exp -> exp MULTIPLICACION . exp
+    (16) exp -> . exp MAS exp
+    (17) exp -> . exp MENOS exp
+    (18) exp -> . exp MULTIPLICACION exp
+    (19) exp -> . exp DIVISION exp
+    (20) exp -> . exp MAYOR exp
+    (21) exp -> . exp MENOR exp
+    (22) exp -> . exp IGUALQUE exp
+    (23) exp -> . PARIZQ exp PARDER
+    (24) exp -> . ENTERO
+    (25) exp -> . DECIMAL
+    (26) exp -> . STRING
+    (27) exp -> . ID
+
+    PARIZQ          shift and go to state 16
+    ENTERO          shift and go to state 18
+    DECIMAL         shift and go to state 19
+    STRING          shift and go to state 20
+    ID              shift and go to state 21
+
+    exp                            shift and go to state 44
+
+state 33
+
+    (19) exp -> exp DIVISION . exp
+    (16) exp -> . exp MAS exp
+    (17) exp -> . exp MENOS exp
+    (18) exp -> . exp MULTIPLICACION exp
+    (19) exp -> . exp DIVISION exp
+    (20) exp -> . exp MAYOR exp
+    (21) exp -> . exp MENOR exp
+    (22) exp -> . exp IGUALQUE exp
+    (23) exp -> . PARIZQ exp PARDER
+    (24) exp -> . ENTERO
+    (25) exp -> . DECIMAL
+    (26) exp -> . STRING
+    (27) exp -> . ID
+
+    PARIZQ          shift and go to state 16
+    ENTERO          shift and go to state 18
+    DECIMAL         shift and go to state 19
+    STRING          shift and go to state 20
+    ID              shift and go to state 21
+
+    exp                            shift and go to state 45
+
+state 34
+
+    (20) exp -> exp MAYOR . exp
+    (16) exp -> . exp MAS exp
+    (17) exp -> . exp MENOS exp
+    (18) exp -> . exp MULTIPLICACION exp
+    (19) exp -> . exp DIVISION exp
+    (20) exp -> . exp MAYOR exp
+    (21) exp -> . exp MENOR exp
+    (22) exp -> . exp IGUALQUE exp
+    (23) exp -> . PARIZQ exp PARDER
+    (24) exp -> . ENTERO
+    (25) exp -> . DECIMAL
+    (26) exp -> . STRING
+    (27) exp -> . ID
+
+    PARIZQ          shift and go to state 16
+    ENTERO          shift and go to state 18
+    DECIMAL         shift and go to state 19
+    STRING          shift and go to state 20
+    ID              shift and go to state 21
+
+    exp                            shift and go to state 46
+
+state 35
+
+    (21) exp -> exp MENOR . exp
+    (16) exp -> . exp MAS exp
+    (17) exp -> . exp MENOS exp
+    (18) exp -> . exp MULTIPLICACION exp
+    (19) exp -> . exp DIVISION exp
+    (20) exp -> . exp MAYOR exp
+    (21) exp -> . exp MENOR exp
+    (22) exp -> . exp IGUALQUE exp
+    (23) exp -> . PARIZQ exp PARDER
+    (24) exp -> . ENTERO
+    (25) exp -> . DECIMAL
+    (26) exp -> . STRING
+    (27) exp -> . ID
+
+    PARIZQ          shift and go to state 16
+    ENTERO          shift and go to state 18
+    DECIMAL         shift and go to state 19
+    STRING          shift and go to state 20
+    ID              shift and go to state 21
+
+    exp                            shift and go to state 47
+
+state 36
+
+    (22) exp -> exp IGUALQUE . exp
+    (16) exp -> . exp MAS exp
+    (17) exp -> . exp MENOS exp
+    (18) exp -> . exp MULTIPLICACION exp
+    (19) exp -> . exp DIVISION exp
+    (20) exp -> . exp MAYOR exp
+    (21) exp -> . exp MENOR exp
+    (22) exp -> . exp IGUALQUE exp
+    (23) exp -> . PARIZQ exp PARDER
+    (24) exp -> . ENTERO
+    (25) exp -> . DECIMAL
+    (26) exp -> . STRING
+    (27) exp -> . ID
+
+    PARIZQ          shift and go to state 16
+    ENTERO          shift and go to state 18
+    DECIMAL         shift and go to state 19
+    STRING          shift and go to state 20
+    ID              shift and go to state 21
+
+    exp                            shift and go to state 48
+
+state 37
+
+    (10) consoleLog -> CONSOLE PUNTO LOG PARIZQ exp . PARDER PTCOMA
+    (16) exp -> exp . MAS exp
+    (17) exp -> exp . MENOS exp
+    (18) exp -> exp . MULTIPLICACION exp
+    (19) exp -> exp . DIVISION exp
+    (20) exp -> exp . MAYOR exp
+    (21) exp -> exp . MENOR exp
+    (22) exp -> exp . IGUALQUE exp
+
+    PARDER          shift and go to state 49
+    MAS             shift and go to state 30
+    MENOS           shift and go to state 31
+    MULTIPLICACION  shift and go to state 32
+    DIVISION        shift and go to state 33
+    MAYOR           shift and go to state 34
+    MENOR           shift and go to state 35
+    IGUALQUE        shift and go to state 36
+
+
+state 38
+
+    (11) declaration -> LET ID DOSPT typeDef IGUAL . exp PTCOMA
+    (16) exp -> . exp MAS exp
+    (17) exp -> . exp MENOS exp
+    (18) exp -> . exp MULTIPLICACION exp
+    (19) exp -> . exp DIVISION exp
+    (20) exp -> . exp MAYOR exp
+    (21) exp -> . exp MENOR exp
+    (22) exp -> . exp IGUALQUE exp
+    (23) exp -> . PARIZQ exp PARDER
+    (24) exp -> . ENTERO
+    (25) exp -> . DECIMAL
+    (26) exp -> . STRING
+    (27) exp -> . ID
+
+    PARIZQ          shift and go to state 16
+    ENTERO          shift and go to state 18
+    DECIMAL         shift and go to state 19
+    STRING          shift and go to state 20
+    ID              shift and go to state 21
+
+    exp                            shift and go to state 50
+
+state 39
+
+    (23) exp -> PARIZQ exp PARDER .
+
+    PARDER          reduce using rule 23 (exp -> PARIZQ exp PARDER .)
+    MAS             reduce using rule 23 (exp -> PARIZQ exp PARDER .)
+    MENOS           reduce using rule 23 (exp -> PARIZQ exp PARDER .)
+    MULTIPLICACION  reduce using rule 23 (exp -> PARIZQ exp PARDER .)
+    DIVISION        reduce using rule 23 (exp -> PARIZQ exp PARDER .)
+    MAYOR           reduce using rule 23 (exp -> PARIZQ exp PARDER .)
+    MENOR           reduce using rule 23 (exp -> PARIZQ exp PARDER .)
+    IGUALQUE        reduce using rule 23 (exp -> PARIZQ exp PARDER .)
+    PTCOMA          reduce using rule 23 (exp -> PARIZQ exp PARDER .)
+
+
+state 40
+
+    (9) whileSt -> RWHILE PARIZQ exp PARDER block .
+
+    CONSOLE         reduce using rule 9 (whileSt -> RWHILE PARIZQ exp PARDER block .)
+    LET             reduce using rule 9 (whileSt -> RWHILE PARIZQ exp PARDER block .)
+    RWHILE          reduce using rule 9 (whileSt -> RWHILE PARIZQ exp PARDER block .)
+    $end            reduce using rule 9 (whileSt -> RWHILE PARIZQ exp PARDER block .)
+    LLAVEDER        reduce using rule 9 (whileSt -> RWHILE PARIZQ exp PARDER block .)
+
+
+state 41
+
+    (7) block -> LLAVEIZQ . instructions LLAVEDER
+    (8) block -> LLAVEIZQ . LLAVEDER
+    (2) instructions -> . instructions instruction
+    (3) instructions -> . instruction
+    (4) instruction -> . consoleLog
+    (5) instruction -> . declaration
+    (6) instruction -> . whileSt
+    (10) consoleLog -> . CONSOLE PUNTO LOG PARIZQ exp PARDER PTCOMA
+    (11) declaration -> . LET ID DOSPT typeDef IGUAL exp PTCOMA
+    (9) whileSt -> . RWHILE PARIZQ exp PARDER block
+
+    LLAVEDER        shift and go to state 52
+    CONSOLE         shift and go to state 7
+    LET             shift and go to state 8
+    RWHILE          shift and go to state 9
+
+    instructions                   shift and go to state 51
+    instruction                    shift and go to state 3
+    consoleLog                     shift and go to state 4
+    declaration                    shift and go to state 5
+    whileSt                        shift and go to state 6
+
+state 42
+
+    (16) exp -> exp MAS exp .
+    (16) exp -> exp . MAS exp
+    (17) exp -> exp . MENOS exp
+    (18) exp -> exp . MULTIPLICACION exp
+    (19) exp -> exp . DIVISION exp
+    (20) exp -> exp . MAYOR exp
+    (21) exp -> exp . MENOR exp
+    (22) exp -> exp . IGUALQUE exp
+
+    PARDER          reduce using rule 16 (exp -> exp MAS exp .)
+    MAS             reduce using rule 16 (exp -> exp MAS exp .)
+    MENOS           reduce using rule 16 (exp -> exp MAS exp .)
+    MAYOR           reduce using rule 16 (exp -> exp MAS exp .)
+    MENOR           reduce using rule 16 (exp -> exp MAS exp .)
+    IGUALQUE        reduce using rule 16 (exp -> exp MAS exp .)
+    PTCOMA          reduce using rule 16 (exp -> exp MAS exp .)
+    MULTIPLICACION  shift and go to state 32
+    DIVISION        shift and go to state 33
+
+  ! MULTIPLICACION  [ reduce using rule 16 (exp -> exp MAS exp .) ]
+  ! DIVISION        [ reduce using rule 16 (exp -> exp MAS exp .) ]
+  ! MAS             [ shift and go to state 30 ]
+  ! MENOS           [ shift and go to state 31 ]
+  ! MAYOR           [ shift and go to state 34 ]
+  ! MENOR           [ shift and go to state 35 ]
+  ! IGUALQUE        [ shift and go to state 36 ]
+
+
+state 43
+
+    (17) exp -> exp MENOS exp .
+    (16) exp -> exp . MAS exp
+    (17) exp -> exp . MENOS exp
+    (18) exp -> exp . MULTIPLICACION exp
+    (19) exp -> exp . DIVISION exp
+    (20) exp -> exp . MAYOR exp
+    (21) exp -> exp . MENOR exp
+    (22) exp -> exp . IGUALQUE exp
+
+    PARDER          reduce using rule 17 (exp -> exp MENOS exp .)
+    MAS             reduce using rule 17 (exp -> exp MENOS exp .)
+    MENOS           reduce using rule 17 (exp -> exp MENOS exp .)
+    MAYOR           reduce using rule 17 (exp -> exp MENOS exp .)
+    MENOR           reduce using rule 17 (exp -> exp MENOS exp .)
+    IGUALQUE        reduce using rule 17 (exp -> exp MENOS exp .)
+    PTCOMA          reduce using rule 17 (exp -> exp MENOS exp .)
+    MULTIPLICACION  shift and go to state 32
+    DIVISION        shift and go to state 33
+
+  ! MULTIPLICACION  [ reduce using rule 17 (exp -> exp MENOS exp .) ]
+  ! DIVISION        [ reduce using rule 17 (exp -> exp MENOS exp .) ]
+  ! MAS             [ shift and go to state 30 ]
+  ! MENOS           [ shift and go to state 31 ]
+  ! MAYOR           [ shift and go to state 34 ]
+  ! MENOR           [ shift and go to state 35 ]
+  ! IGUALQUE        [ shift and go to state 36 ]
+
+
+state 44
+
+    (18) exp -> exp MULTIPLICACION exp .
+    (16) exp -> exp . MAS exp
+    (17) exp -> exp . MENOS exp
+    (18) exp -> exp . MULTIPLICACION exp
+    (19) exp -> exp . DIVISION exp
+    (20) exp -> exp . MAYOR exp
+    (21) exp -> exp . MENOR exp
+    (22) exp -> exp . IGUALQUE exp
+
+    PARDER          reduce using rule 18 (exp -> exp MULTIPLICACION exp .)
+    MAS             reduce using rule 18 (exp -> exp MULTIPLICACION exp .)
+    MENOS           reduce using rule 18 (exp -> exp MULTIPLICACION exp .)
+    MULTIPLICACION  reduce using rule 18 (exp -> exp MULTIPLICACION exp .)
+    DIVISION        reduce using rule 18 (exp -> exp MULTIPLICACION exp .)
+    MAYOR           reduce using rule 18 (exp -> exp MULTIPLICACION exp .)
+    MENOR           reduce using rule 18 (exp -> exp MULTIPLICACION exp .)
+    IGUALQUE        reduce using rule 18 (exp -> exp MULTIPLICACION exp .)
+    PTCOMA          reduce using rule 18 (exp -> exp MULTIPLICACION exp .)
+
+  ! MAS             [ shift and go to state 30 ]
+  ! MENOS           [ shift and go to state 31 ]
+  ! MULTIPLICACION  [ shift and go to state 32 ]
+  ! DIVISION        [ shift and go to state 33 ]
+  ! MAYOR           [ shift and go to state 34 ]
+  ! MENOR           [ shift and go to state 35 ]
+  ! IGUALQUE        [ shift and go to state 36 ]
+
+
+state 45
+
+    (19) exp -> exp DIVISION exp .
+    (16) exp -> exp . MAS exp
+    (17) exp -> exp . MENOS exp
+    (18) exp -> exp . MULTIPLICACION exp
+    (19) exp -> exp . DIVISION exp
+    (20) exp -> exp . MAYOR exp
+    (21) exp -> exp . MENOR exp
+    (22) exp -> exp . IGUALQUE exp
+
+    PARDER          reduce using rule 19 (exp -> exp DIVISION exp .)
+    MAS             reduce using rule 19 (exp -> exp DIVISION exp .)
+    MENOS           reduce using rule 19 (exp -> exp DIVISION exp .)
+    MULTIPLICACION  reduce using rule 19 (exp -> exp DIVISION exp .)
+    DIVISION        reduce using rule 19 (exp -> exp DIVISION exp .)
+    MAYOR           reduce using rule 19 (exp -> exp DIVISION exp .)
+    MENOR           reduce using rule 19 (exp -> exp DIVISION exp .)
+    IGUALQUE        reduce using rule 19 (exp -> exp DIVISION exp .)
+    PTCOMA          reduce using rule 19 (exp -> exp DIVISION exp .)
+
+  ! MAS             [ shift and go to state 30 ]
+  ! MENOS           [ shift and go to state 31 ]
+  ! MULTIPLICACION  [ shift and go to state 32 ]
+  ! DIVISION        [ shift and go to state 33 ]
+  ! MAYOR           [ shift and go to state 34 ]
+  ! MENOR           [ shift and go to state 35 ]
+  ! IGUALQUE        [ shift and go to state 36 ]
+
+
+state 46
+
+    (20) exp -> exp MAYOR exp .
+    (16) exp -> exp . MAS exp
+    (17) exp -> exp . MENOS exp
+    (18) exp -> exp . MULTIPLICACION exp
+    (19) exp -> exp . DIVISION exp
+    (20) exp -> exp . MAYOR exp
+    (21) exp -> exp . MENOR exp
+    (22) exp -> exp . IGUALQUE exp
+
+    PARDER          reduce using rule 20 (exp -> exp MAYOR exp .)
+    MAYOR           reduce using rule 20 (exp -> exp MAYOR exp .)
+    MENOR           reduce using rule 20 (exp -> exp MAYOR exp .)
+    IGUALQUE        reduce using rule 20 (exp -> exp MAYOR exp .)
+    PTCOMA          reduce using rule 20 (exp -> exp MAYOR exp .)
+    MAS             shift and go to state 30
+    MENOS           shift and go to state 31
+    MULTIPLICACION  shift and go to state 32
+    DIVISION        shift and go to state 33
+
+  ! MAS             [ reduce using rule 20 (exp -> exp MAYOR exp .) ]
+  ! MENOS           [ reduce using rule 20 (exp -> exp MAYOR exp .) ]
+  ! MULTIPLICACION  [ reduce using rule 20 (exp -> exp MAYOR exp .) ]
+  ! DIVISION        [ reduce using rule 20 (exp -> exp MAYOR exp .) ]
+  ! MAYOR           [ shift and go to state 34 ]
+  ! MENOR           [ shift and go to state 35 ]
+  ! IGUALQUE        [ shift and go to state 36 ]
+
+
+state 47
+
+    (21) exp -> exp MENOR exp .
+    (16) exp -> exp . MAS exp
+    (17) exp -> exp . MENOS exp
+    (18) exp -> exp . MULTIPLICACION exp
+    (19) exp -> exp . DIVISION exp
+    (20) exp -> exp . MAYOR exp
+    (21) exp -> exp . MENOR exp
+    (22) exp -> exp . IGUALQUE exp
+
+    PARDER          reduce using rule 21 (exp -> exp MENOR exp .)
+    MAYOR           reduce using rule 21 (exp -> exp MENOR exp .)
+    MENOR           reduce using rule 21 (exp -> exp MENOR exp .)
+    IGUALQUE        reduce using rule 21 (exp -> exp MENOR exp .)
+    PTCOMA          reduce using rule 21 (exp -> exp MENOR exp .)
+    MAS             shift and go to state 30
+    MENOS           shift and go to state 31
+    MULTIPLICACION  shift and go to state 32
+    DIVISION        shift and go to state 33
+
+  ! MAS             [ reduce using rule 21 (exp -> exp MENOR exp .) ]
+  ! MENOS           [ reduce using rule 21 (exp -> exp MENOR exp .) ]
+  ! MULTIPLICACION  [ reduce using rule 21 (exp -> exp MENOR exp .) ]
+  ! DIVISION        [ reduce using rule 21 (exp -> exp MENOR exp .) ]
+  ! MAYOR           [ shift and go to state 34 ]
+  ! MENOR           [ shift and go to state 35 ]
+  ! IGUALQUE        [ shift and go to state 36 ]
+
+
+state 48
+
+    (22) exp -> exp IGUALQUE exp .
+    (16) exp -> exp . MAS exp
+    (17) exp -> exp . MENOS exp
+    (18) exp -> exp . MULTIPLICACION exp
+    (19) exp -> exp . DIVISION exp
+    (20) exp -> exp . MAYOR exp
+    (21) exp -> exp . MENOR exp
+    (22) exp -> exp . IGUALQUE exp
+
+    PARDER          reduce using rule 22 (exp -> exp IGUALQUE exp .)
+    IGUALQUE        reduce using rule 22 (exp -> exp IGUALQUE exp .)
+    PTCOMA          reduce using rule 22 (exp -> exp IGUALQUE exp .)
+    MAS             shift and go to state 30
+    MENOS           shift and go to state 31
+    MULTIPLICACION  shift and go to state 32
+    DIVISION        shift and go to state 33
+    MAYOR           shift and go to state 34
+    MENOR           shift and go to state 35
+
+  ! MAS             [ reduce using rule 22 (exp -> exp IGUALQUE exp .) ]
+  ! MENOS           [ reduce using rule 22 (exp -> exp IGUALQUE exp .) ]
+  ! MULTIPLICACION  [ reduce using rule 22 (exp -> exp IGUALQUE exp .) ]
+  ! DIVISION        [ reduce using rule 22 (exp -> exp IGUALQUE exp .) ]
+  ! MAYOR           [ reduce using rule 22 (exp -> exp IGUALQUE exp .) ]
+  ! MENOR           [ reduce using rule 22 (exp -> exp IGUALQUE exp .) ]
+  ! IGUALQUE        [ shift and go to state 36 ]
+
+
+state 49
+
+    (10) consoleLog -> CONSOLE PUNTO LOG PARIZQ exp PARDER . PTCOMA
+
+    PTCOMA          shift and go to state 53
+
+
+state 50
+
+    (11) declaration -> LET ID DOSPT typeDef IGUAL exp . PTCOMA
+    (16) exp -> exp . MAS exp
+    (17) exp -> exp . MENOS exp
+    (18) exp -> exp . MULTIPLICACION exp
+    (19) exp -> exp . DIVISION exp
+    (20) exp -> exp . MAYOR exp
+    (21) exp -> exp . MENOR exp
+    (22) exp -> exp . IGUALQUE exp
+
+    PTCOMA          shift and go to state 54
+    MAS             shift and go to state 30
+    MENOS           shift and go to state 31
+    MULTIPLICACION  shift and go to state 32
+    DIVISION        shift and go to state 33
+    MAYOR           shift and go to state 34
+    MENOR           shift and go to state 35
+    IGUALQUE        shift and go to state 36
+
+
+state 51
+
+    (7) block -> LLAVEIZQ instructions . LLAVEDER
+    (2) instructions -> instructions . instruction
+    (4) instruction -> . consoleLog
+    (5) instruction -> . declaration
+    (6) instruction -> . whileSt
+    (10) consoleLog -> . CONSOLE PUNTO LOG PARIZQ exp PARDER PTCOMA
+    (11) declaration -> . LET ID DOSPT typeDef IGUAL exp PTCOMA
+    (9) whileSt -> . RWHILE PARIZQ exp PARDER block
+
+    LLAVEDER        shift and go to state 55
+    CONSOLE         shift and go to state 7
+    LET             shift and go to state 8
+    RWHILE          shift and go to state 9
+
+    instruction                    shift and go to state 10
+    consoleLog                     shift and go to state 4
+    declaration                    shift and go to state 5
+    whileSt                        shift and go to state 6
+
+state 52
+
+    (8) block -> LLAVEIZQ LLAVEDER .
+
+    CONSOLE         reduce using rule 8 (block -> LLAVEIZQ LLAVEDER .)
+    LET             reduce using rule 8 (block -> LLAVEIZQ LLAVEDER .)
+    RWHILE          reduce using rule 8 (block -> LLAVEIZQ LLAVEDER .)
+    $end            reduce using rule 8 (block -> LLAVEIZQ LLAVEDER .)
+    LLAVEDER        reduce using rule 8 (block -> LLAVEIZQ LLAVEDER .)
+
+
+state 53
+
+    (10) consoleLog -> CONSOLE PUNTO LOG PARIZQ exp PARDER PTCOMA .
+
+    CONSOLE         reduce using rule 10 (consoleLog -> CONSOLE PUNTO LOG PARIZQ exp PARDER PTCOMA .)
+    LET             reduce using rule 10 (consoleLog -> CONSOLE PUNTO LOG PARIZQ exp PARDER PTCOMA .)
+    RWHILE          reduce using rule 10 (consoleLog -> CONSOLE PUNTO LOG PARIZQ exp PARDER PTCOMA .)
+    $end            reduce using rule 10 (consoleLog -> CONSOLE PUNTO LOG PARIZQ exp PARDER PTCOMA .)
+    LLAVEDER        reduce using rule 10 (consoleLog -> CONSOLE PUNTO LOG PARIZQ exp PARDER PTCOMA .)
+
+
+state 54
+
+    (11) declaration -> LET ID DOSPT typeDef IGUAL exp PTCOMA .
+
+    CONSOLE         reduce using rule 11 (declaration -> LET ID DOSPT typeDef IGUAL exp PTCOMA .)
+    LET             reduce using rule 11 (declaration -> LET ID DOSPT typeDef IGUAL exp PTCOMA .)
+    RWHILE          reduce using rule 11 (declaration -> LET ID DOSPT typeDef IGUAL exp PTCOMA .)
+    $end            reduce using rule 11 (declaration -> LET ID DOSPT typeDef IGUAL exp PTCOMA .)
+    LLAVEDER        reduce using rule 11 (declaration -> LET ID DOSPT typeDef IGUAL exp PTCOMA .)
+
+
+state 55
+
+    (7) block -> LLAVEIZQ instructions LLAVEDER .
+
+    CONSOLE         reduce using rule 7 (block -> LLAVEIZQ instructions LLAVEDER .)
+    LET             reduce using rule 7 (block -> LLAVEIZQ instructions LLAVEDER .)
+    RWHILE          reduce using rule 7 (block -> LLAVEIZQ instructions LLAVEDER .)
+    $end            reduce using rule 7 (block -> LLAVEIZQ instructions LLAVEDER .)
+    LLAVEDER        reduce using rule 7 (block -> LLAVEIZQ instructions LLAVEDER .)
+

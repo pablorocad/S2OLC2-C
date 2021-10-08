@@ -1,0 +1,4 @@
+let x:Int = 9;
+while(5 < 6) {
+    console.log(7);
+}
