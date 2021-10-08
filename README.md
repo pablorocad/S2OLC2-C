@@ -20,6 +20,8 @@ Saludos compañeros y compañeras, bienvenidos al curso de Compiladores 2. En es
 ### Analizadores:
 - https://www.ericknavarro.io/olc2
 - https://www.dabeaz.com/ply/ply.html
+- https://ply.readthedocs.io/en/latest/
+- https://www.geeksforgeeks.org/ply-python-lex-yacc-an-introduction/
 
 
 ### Codigo 3 direcciones: 
