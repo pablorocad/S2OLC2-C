@@ -6,4 +6,5 @@ class typeExpression(enum.Enum):
     FLOAT = 2
     BOOL = 3
     NULL = 4
+    ARRAY = 5
     
